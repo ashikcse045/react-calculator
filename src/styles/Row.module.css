@@ -1,0 +1,50 @@
+/* row component */
+.row {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row button {
+  width: 65px;
+  height: 65px;
+  text-transform: uppercase;
+  background-color: #313131;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+}
+
+.row button:hover {
+  background-color: #1a1a1a;
+}
+
+.row button.orange {
+  background-color: #f69a06;
+  color: #fff;
+}
+.row button.orange:hover {
+  background-color: #d08103;
+}
+
+.row button.of-white {
+  background-color: #a0a0a0;
+  color: #000;
+}
+.row button.of-white:hover {
+  background-color: #828181;
+}
+.row .zero {
+  width: 145px;
+  text-transform: uppercase;
+  height: 65px;
+  text-align: left;
+  padding-left: 25px;
+  border-radius: 30px;
+}
