@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-case-declarations */
 import { useReducer } from 'react';
@@ -30,13 +32,24 @@ const reduce = (state, action) => {
             };
 
         case 'dot':
-            const firstDot = state.input.indexOf('.');
-            const trimDot = state.input;
-            if (firstDot > -1) {
+            if (state.operatorClick) {
                 return {
                     ...state,
-                    input: trimDot,
+                    input: action.value,
+                    operatorClick: false,
                 };
+            }
+            // const firstDot = state.input.indexOf('.');
+            const trimDot = state.input;
+            // if (firstDot > -1) {
+            //     return {
+            //         ...state,
+            //         input: trimDot,
+            //     };
+            // }
+
+            if (state.input.includes('.')) {
+                return state;
             }
             return {
                 ...state,
@@ -120,7 +133,8 @@ const reduce = (state, action) => {
 
             if (preInput.includes('+')) {
                 const lastChar = Number(preInput.slice(-1));
-                if (!lastChar.isNaN) {
+                console.log(state.operatorClick);
+                if (!isNaN(lastChar)) {
                     const arr = preInput.split('+');
                     const result = Number(arr[0]) + Number(arr[1]);
 
@@ -143,7 +157,7 @@ const reduce = (state, action) => {
             }
             if (preInput.includes('-')) {
                 const lastChar = Number(preInput.slice(-1));
-                if (!lastChar.isNaN) {
+                if (!isNaN(lastChar)) {
                     const arr = preInput.split('-');
                     const result = Number(arr[0]) - Number(arr[1]);
 
@@ -165,7 +179,7 @@ const reduce = (state, action) => {
             }
             if (preInput.includes('*')) {
                 const lastChar = Number(preInput.slice(-1));
-                if (!lastChar.isNaN) {
+                if (!isNaN(lastChar)) {
                     const arr = preInput.split('*');
                     const result = Number(arr[0]) * Number(arr[1]);
 
@@ -187,7 +201,7 @@ const reduce = (state, action) => {
             }
             if (preInput.includes('/')) {
                 const lastChar = Number(preInput.slice(-1));
-                if (!lastChar.isNaN) {
+                if (!isNaN(lastChar)) {
                     const arr = preInput.split('/');
                     const result = Number(arr[0]) / Number(arr[1]);
 
@@ -210,9 +224,10 @@ const reduce = (state, action) => {
 
             return {
                 ...state,
-                prevVal: state.prevVal + state.input + action.value,
+                // prevVal: state.prevVal + state.input + action.value,
+                prevVal: '',
+                input: state.input,
                 operatorClick: true,
-                // input: '0',
             };
 
         case 'percent':
