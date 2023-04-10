@@ -27,3 +27,16 @@
   color: #fff;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 500px) {
+  .display input {
+    padding: 5px 10px;
+    font-size: 30px;
+  }
+  .display input.input2 {
+    padding: 10px 10px;
+    font-size: 20px;
+
+    margin-top: 10px;
+  }
+}

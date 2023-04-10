@@ -36,4 +36,11 @@ h1 {
     padding: 15px 0px;
     background-color: #000000;
   }
+
+  h1 {
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 25px;
+  }
 }
