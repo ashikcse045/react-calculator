@@ -15,7 +15,11 @@ export default function Buttons({ dispatch }) {
                     text="x"
                     onClick={() => dispatch({ btn: 'x' })}
                 />
-                <Button className={classes.of_white} text="%" />
+                <Button
+                    className={classes.of_white}
+                    text="%"
+                    onClick={() => dispatch({ btn: 'percent', value: '%' })}
+                />
                 <Button
                     className={classes.orange}
                     text="/"
@@ -53,11 +57,8 @@ export default function Buttons({ dispatch }) {
                 />
             </div>
             <div className={classes.row}>
-                <Button
-                    className={classes.zero}
-                    text="0"
-                    onClick={() => dispatch({ btn: 'number', value: '0' })}
-                />
+                <Button text="0" onClick={() => dispatch({ btn: 'number', value: '0' })} />
+                <Button text="00" onClick={() => dispatch({ btn: 'number', value: '00' })} />
                 <Button text="." onClick={() => dispatch({ btn: 'dot', value: '.' })} />
 
                 <Button

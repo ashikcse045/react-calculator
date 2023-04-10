@@ -7,7 +7,7 @@ export default function Display() {
     const { input, prevVal } = useContext(valueContext);
     return (
         <div className={classes.display}>
-            <h1>my calculator</h1>
+            <h1>react calculator</h1>
             <Input className={classes.input2} value={prevVal} />
             <Input value={input} />
         </div>

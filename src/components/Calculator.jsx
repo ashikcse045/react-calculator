@@ -115,9 +115,23 @@ const reduce = (state, action) => {
 
         case 'equal':
             const preInput = state.prevVal;
+
             const mainInput = Number(state.input);
 
             if (preInput.includes('+')) {
+                const lastChar = Number(preInput.slice(-1));
+                if (!lastChar.isNaN) {
+                    const arr = preInput.split('+');
+                    const result = Number(arr[0]) + Number(arr[1]);
+
+                    return {
+                        ...state,
+                        prevVal: '',
+                        input: `${result}`,
+                        operatorClick: false,
+                    };
+                }
+
                 const temp = Number(preInput.slice(0, -1));
 
                 return {
@@ -128,6 +142,18 @@ const reduce = (state, action) => {
                 };
             }
             if (preInput.includes('-')) {
+                const lastChar = Number(preInput.slice(-1));
+                if (!lastChar.isNaN) {
+                    const arr = preInput.split('-');
+                    const result = Number(arr[0]) - Number(arr[1]);
+
+                    return {
+                        ...state,
+                        prevVal: '',
+                        input: `${result}`,
+                        operatorClick: false,
+                    };
+                }
                 const temp = Number(preInput.slice(0, -1));
 
                 return {
@@ -138,6 +164,18 @@ const reduce = (state, action) => {
                 };
             }
             if (preInput.includes('*')) {
+                const lastChar = Number(preInput.slice(-1));
+                if (!lastChar.isNaN) {
+                    const arr = preInput.split('*');
+                    const result = Number(arr[0]) * Number(arr[1]);
+
+                    return {
+                        ...state,
+                        prevVal: '',
+                        input: `${result}`,
+                        operatorClick: false,
+                    };
+                }
                 const temp = Number(preInput.slice(0, -1));
 
                 return {
@@ -148,6 +186,18 @@ const reduce = (state, action) => {
                 };
             }
             if (preInput.includes('/')) {
+                const lastChar = Number(preInput.slice(-1));
+                if (!lastChar.isNaN) {
+                    const arr = preInput.split('/');
+                    const result = Number(arr[0]) / Number(arr[1]);
+
+                    return {
+                        ...state,
+                        prevVal: '',
+                        input: `${result}`,
+                        operatorClick: false,
+                    };
+                }
                 const temp = Number(preInput.slice(0, -1));
 
                 return {
@@ -164,6 +214,53 @@ const reduce = (state, action) => {
                 operatorClick: true,
                 // input: '0',
             };
+
+        case 'percent':
+            const preVal = state.prevVal;
+            const currVal = Number(state.input);
+
+            if (preVal.includes('+')) {
+                const preNum = Number(preVal.slice(0, -1));
+                const percent = (currVal / 100) * preNum;
+                return {
+                    ...state,
+                    prevVal: `${preVal}${percent}`,
+                    operatorClick: false,
+                    input: percent,
+                };
+            }
+            if (preVal.includes('-')) {
+                const preNum = Number(preVal.slice(0, -1));
+                const percent = (currVal / 100) * preNum;
+                return {
+                    ...state,
+                    prevVal: `${preVal}${percent}`,
+                    operatorClick: false,
+                    input: percent,
+                };
+            }
+            if (preVal.includes('*')) {
+                // const preNum = Number(preVal.slice(0, -1));
+                const percent = currVal / 100;
+                return {
+                    ...state,
+                    prevVal: `${preVal}${percent}`,
+                    operatorClick: false,
+                    input: percent,
+                };
+            }
+            if (preVal.includes('/')) {
+                // const preNum = Number(preVal.slice(0, -1));
+                const percent = currVal / 100;
+                return {
+                    ...state,
+                    prevVal: `${preVal}${percent}`,
+                    operatorClick: false,
+                    input: percent,
+                };
+            }
+
+            return state;
 
         default:
             return state;

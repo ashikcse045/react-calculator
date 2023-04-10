@@ -44,10 +44,12 @@
   background-color: #a0a0a0;
   color: #000;
 }
+
 .row button.of_white:hover {
   background-color: #828181;
 }
-.row .zero {
+
+.row button.zero {
   width: 145px;
   text-transform: uppercase;
   height: 65px;
@@ -73,5 +75,10 @@
     border: none;
     outline: none;
     border-radius: 50%;
+  }
+
+  .row button.zero {
+    height: 50px;
+    width: 140px;
   }
 }
