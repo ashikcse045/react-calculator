@@ -8,7 +8,19 @@
   width: 100%;
   text-align: right;
   padding: 10px 10px;
-  font-size: 50px;
+  font-size: 35px;
+  border: none;
+  outline: none;
+  background-color: #000;
+  color: #fff;
+  /* margin-top: 20px; */
+}
+
+.display input.input2 {
+  width: 100%;
+  text-align: right;
+  padding: 10px 10px;
+  font-size: 25px;
   border: none;
   outline: none;
   background-color: #000;

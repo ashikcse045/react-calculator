@@ -1,7 +1,4 @@
-import { useContext } from 'react';
-import valueContext from '../contexts/valueContext';
-
-export default function Input() {
-    const { val } = useContext(valueContext);
-    return <input type="text" value={val} disabled />;
+/* eslint-disable react/jsx-props-no-spreading */
+export default function Input({ value, ...rest }) {
+    return <input {...rest} type="text" value={value || '0'} disabled />;
 }
